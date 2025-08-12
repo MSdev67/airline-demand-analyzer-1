@@ -1,0 +1,37 @@
+<div class="row chart-row">
+    <div class="col-md-6">
+        <div class="chart-container">
+            <div id="demandChart" class="chart"></div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="chart-container">
+            <div id="routeChart" class="chart"></div>
+        </div>
+    </div>
+</div>
+<div class="row chart-row">
+    <div class="col-md-12">
+        <div class="chart-container">
+            <div id="airlineChart" class="chart"></div>
+        </div>
+    </div>
+</div>
+
+{% if demand_chart %}
+<script>
+    Plotly.newPlot('demandChart', {{ demand_chart | safe }});
+</script>
+{% endif %}
+
+{% if route_chart %}
+<script>
+    Plotly.newPlot('routeChart', {{ route_chart | safe }});
+</script>
+{% endif %}
+
+{% if airline_chart %}
+<script>
+    Plotly.newPlot('airlineChart', {{ airline_chart | safe }});
+</script>
+{% endif %}
